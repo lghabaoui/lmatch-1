@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMatch-Liik</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 30px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-links a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 17px;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+        .nav-links a:hover {
+            color: rgb(150, 150, 150);
+        }
+        .logo {
+            height: 60px;
+        }
+        .pb-4 {
+            padding-bottom: 1.5rem !important;
+        }
+        .pt-5 {
+            padding-top: 3rem!important;
+        }
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(var(--bs-gutter-y) * -1);
+            margin-right: calc(var(--bs-gutter-x)/ -2);
+            margin-left: calc(var(--bs-gutter-x)/ -2);
+        }
+        .col-lg-4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+        .cardList {
+            border-radius: 20px;
+        }
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+        .card {
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: .25rem;
+            border-radius: 20px 0px 0px 20px;
+        }
+        .g-0, .gx-0 {
+            --bs-gutter-x: 0;
+        }
+        .col-md-4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+        .cardList .card-img-top {
+            height: 190px;
+            width: 100%;
+            border-radius: 20px 0px 0px 20px;
+            margin: 0;
+            margin-left: -14px;
+            padding: 0;
+        }
+        .col-lg-8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+        .col-md-8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1rem 1rem;
+        }
+        .btnBook {
+            background-color: #eeeff0;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            border: 1px solid #ced4da;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border-radius: .25rem;
+        }
+        .btn-lg{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="image/logo.png" alt="Company Logo" class="logo">
+        <div class="nav-links">
+          <a href="loghome.html">Home</a>
+          <a href="logrent.html">Rent</a>
+          <a href="#events">Events</a>
+          <a href="../ownerLogin/login.html" target="_blank" rel="noopener noreferrer">Join as a Owner</a>
+          <a href="footer/us.html">About Us</a>
+          <a href="footer/contact.html">Contact Us</a>
+        </div>
+      </header>
+    <div class="topStaduims pb-4">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-5">
+                    <div class="d-none d-md-block">
+                        <h3 class="text-center"><span class="border-bottom">Fill Your Informations</span></h3><br>
+                        <div id="datepicker" class="mb-3 hasDatepicker">
+                            <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">
+                                <form action="https://formspree.io/f/xjvnlpbb" method="POST">
+                                    <label for="name">Reserveur Name:</label><br>
+                                    <input type="name" name="Text" id="Text" required class="form-control"><br>
+                                    <label for="email">Reserveur Email:</label><br>
+                                    <input type="email" name="email" id="email" class="form-control"><br>
+                                    <label for="tel">Reserveur Number:</label><br>
+                                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="06XXXXXXXX" required class="form-control"><br>
+                                    <label for="date">Date Of Reservation:</label><br>
+                                    <input type="date" name="date" id="date" required class="form-control"><br>
+                                    <p class="mt-2 mb-1 fw-bold">Choose Your Time:</p>
+                                    <select name="time" class="form-control text-uppercase" required>
+                                        <option value="">Choose Your Time</option>
+                                        <option value="01:00 am">01:00 am</option>
+                                        <option value="01:30 am">01:30 am</option>
+                                        <option value="02:00 am">02:00 am</option>
+                                        <option value="02:30 am">02:30 am</option>
+                                        <option value="03:00 am">03:00 am</option>
+                                        <option value="03:30 am">03:30 am</option>
+                                        <option value="04:00 am">04:00 am</option>
+                                        <option value="04:30 am">04:30 am</option>
+                                        <option value="05:00 am">05:00 am</option>
+                                        <option value="05:30 am">05:30 am</option>
+                                        <option value="06:00 am">06:00 am</option>
+                                        <option value="06:30 am">06:30 am</option>
+                                        <option value="07:00 am">07:00 am</option>
+                                        <option value="07:30 am">07:30 am</option>
+                                        <option value="08:00 am">08:00 am</option>
+                                        <option value="08:30 am">08:30 am</option>
+                                        <option value="09:00 am">09:00 am</option>
+                                        <option value="09:30 am">09:30 am</option>
+                                        <option value="10:00 am">10:00 am</option>
+                                        <option value="10:30 am">10:30 am</option>
+                                        <option value="11:00 am">11:00 am</option>
+                                        <option value="11:30 am">11:30 am</option>
+                                        <option value="12:00 pm">12:00 pm</option>
+                                        <option value="12:30 pm">12:30 pm</option>
+                                        <option value="01:00 pm">01:00 pm</option>
+                                        <option value="01:30 pm">01:30 pm</option>
+                                        <option value="02:00 pm">02:00 pm</option>
+                                        <option value="02:30 pm">02:30 pm</option>
+                                        <option value="03:00 pm">03:00 pm</option>
+                                        <option value="03:30 pm">03:30 pm</option>
+                                        <option value="04:00 pm">04:00 pm</option>
+                                        <option value="04:30 pm">04:30 pm</option>
+                                        <option value="05:00 pm">05:00 pm</option>
+                                        <option value="05:30 pm">05:30 pm</option>
+                                        <option value="06:00 pm">06:00 pm</option>
+                                        <option value="06:30 pm">06:30 pm</option>
+                                        <option value="07:00 pm">07:00 pm</option>
+                                        <option value="07:30 pm">07:30 pm</option>
+                                        <option value="08:00 pm">08:00 pm</option>
+                                        <option value="08:30 pm">08:30 pm</option>
+                                        <option value="09:00 pm">09:00 pm</option>
+                                        <option value="09:30 pm">09:30 pm</option>
+                                        <option value="10:00 pm">10:00 pm</option>
+                                        <option value="10:30 pm">10:30 pm</option>
+                                        <option value="11:00 pm">11:00 pm</option>
+                                        <option value="11:30 pm">11:30 pm</option>
+                                    </select>
+                                    <input type="reset" class="btn btn-outline-dark btn-lg col mx-1" value="Clear">
+                                    <input type="submit" class="btn btn-success btn-lg col mx-1" value="Submit">
+                                </form>                               
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="col-lg-8 col-md-7 d-none d-md-block">
+                    <div class="card mb-4 cardList d-none d-md-flex clickable">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="https://cdn.malaebapp.com/images/stadium/78/small" class="card-img-top" alt="null">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5>Castilla</h5>
+                                    <p><small title="Bahrain, Riffa - Southern Governorate">Castilla, Tanger</small>
+                                    </p>
+
+                                    <p>For location => <a href="https://maps.app.goo.gl/4Txdbw64zx9aGoRGA" target="_blank" rel="noopener noreferrer">To Castilla Stadium</a></p>
+                                    
+                                    <button class="btn btnBook w-100 d-none d-md-block">Book From <span class="textG">100 DH / 10 Players</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 cardList d-none d-md-flex clickable">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="https://cdn.malaebapp.com/images/stadium/78/small" class="card-img-top" alt="null">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5>Hawma Shook</h5>
+                                    <p><small title="Bahrain, Riffa - Southern Governorate">Hawma Shook, Tanger</small>
+                                    </p>
+
+                                    <p>For location => <a href="https://maps.app.goo.gl/4Txdbw64zx9aGoRGA" target="_blank" rel="noopener noreferrer">To Hawma Shook Stadium</a></p>
+                                    
+                                    <button class="btn btnBook w-100 d-none d-md-block">Book From <span class="textG">100 DH / 10 Players</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 cardList d-none d-md-flex clickable">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="https://cdn.malaebapp.com/images/stadium/78/small" class="card-img-top" alt="null">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5>Bni Makada</h5>
+                                    <p><small title="Bahrain, Riffa - Southern Governorate">Bni Makada, Tanger</small>
+                                    </p>
+
+                                    <p>For location => <a href="https://maps.app.goo.gl/4Txdbw64zx9aGoRGA" target="_blank" rel="noopener noreferrer">To Bni Makada Stadium</a></p>
+                                    
+                                    <button class="btn btnBook w-100 d-none d-md-block">Book From <span class="textG">100 DH / 10 Players</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 cardList d-none d-md-flex clickable">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="https://cdn.malaebapp.com/images/stadium/78/small" class="card-img-top" alt="null">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5>Branes</h5>
+                                    <p><small title="Bahrain, Riffa - Southern Governorate">Branes, Tanger</small>
+                                    </p>
+
+                                    <p>For location => <a href="https://maps.app.goo.gl/4Txdbw64zx9aGoRGA" target="_blank" rel="noopener noreferrer">To Branes Stadium</a></p>
+                                    
+                                    <button class="btn btnBook w-100 d-none d-md-block">Book From <span class="textG">100 DH / 10 Players</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 cardList d-none d-md-flex clickable">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="https://cdn.malaebapp.com/images/stadium/78/small" class="card-img-top" alt="null">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5>Msnana</h5>
+                                    <p><small title="Bahrain, Riffa - Southern Governorate">Msnana, Tanger</small>
+                                    </p>
+
+                                    <p>For location => <a href="https://maps.app.goo.gl/4Txdbw64zx9aGoRGA" target="_blank" rel="noopener noreferrer">To Msnana Stadium</a></p>
+                                    
+                                    <button class="btn btnBook w-100 d-none d-md-block">Book From <span class="textG">100 DH / 10 Players</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

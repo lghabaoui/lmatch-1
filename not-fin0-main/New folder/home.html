@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Navbar Example</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 10px 30px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-links a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 15px;
+      padding: 10px 20px;
+      margin: 0 5px;
+    }
+    .nav-links a:hover {
+      color: hsl(94,44%,55%);
+    }
+    .logo {
+      height: 60px;
+    }
+    .image-player {
+      width: 100%;
+      height: 350px; 
+      background-image: url("https://wallpapercg.com/download/soccer-hd-wallpaper-2366x1690-15544.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      filter: brightness(0.5); 
+    }
+    .search-container {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      text-align: center;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px; 
+      width: 30%;
+    }
+    input[type="text"] {
+      padding: 14px;
+      width: calc(70% - 20px); 
+      margin: 0px 15px;
+      font-family: "Arial", sans-serif;
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+    }
+    input[type="submit"] {
+      padding: 8px 20px;
+      background-color: hsl(94,44%,55%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: "Arial", sans-serif;
+      border-radius: 5px; 
+      position: relative;
+    }
+    input[type="submit"]:hover {
+      background-color: hsl(94,44%,55%);
+    }
+    .text-above-search {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    #search {
+      display: grid;
+      grid-area: search;
+      grid-template:
+        "search" 60px
+        / 420px;
+      justify-content: center;
+      align-content: center;
+      justify-items: stretch;
+      align-items: stretch;
+    }
+    #search input {
+      display: block;
+      grid-area: search;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      color: #ccc;
+      height: 100%;
+      background: none;
+      padding: 0 30px 0 60px;
+      border: none;
+      border-radius: 100px;
+      font: 17px/1 system-ui, sans-serif;
+      outline-offset: -8px;
+    }
+    #search svg {
+      grid-area: search;
+      overflow: visible;
+      color: hsl(94,44%,55%);
+      fill: none;
+      stroke: currentColor;
+    }
+    .spark {
+      fill: currentColor;
+      stroke: none;
+      r: 15;
+    }
+    .spark:nth-child(1) {
+      animation:
+        spark-radius 2.03s 1s both,
+        spark-one-motion 2s 1s both;
+    }
+    @keyframes spark-radius {
+      0% { r: 0; animation-timing-function: cubic-bezier(0, 0.3, 0, 1.57) }
+      30% { r: 15; animation-timing-function: cubic-bezier(1, -0.39, 0.68, 1.04) }
+      95% { r: 8 }
+      99% { r: 10 }
+      99.99% { r: 7 }
+      100% { r: 0 }
+    }
+    @keyframes spark-one-motion {
+      0% { transform: translate(-20%, 50%); animation-timing-function: cubic-bezier(0.63, 0.88, 0, 1.25) }
+      20% { transform: rotate(-0deg) translate(0%, -50%); animation-timing-function: ease-in }
+      80% { transform: rotate(-230deg) translateX(-20%) rotate(-100deg) translateX(15%); animation-timing-function: linear }
+      100% { transform: rotate(-360deg) translate(30px, 100%); animation-timing-function: cubic-bezier(.64,.66,0,.51) }
+    }
+    .spark:nth-child(2) {
+      animation:
+        spark-radius 2.03s 1s both,
+        spark-two-motion 2.03s 1s both;
+    }
+    @keyframes spark-two-motion {
+      0% { transform: translate(120%, 50%) rotate(-70deg) translateY(0%); animation-timing-function: cubic-bezier(0.36, 0.18, 0.94, 0.55) }
+      20% { transform: translate(90%, -80%) rotate(60deg) translateY(-80%); animation-timing-function: cubic-bezier(0.16, 0.77, 1, 0.4) }
+      40% { transform: translate(110%, -50%) rotate(-30deg) translateY(-120%); animation-timing-function: linear }
+      70% { transform: translate(100%, -50%) rotate(120deg) translateY(-100%); animation-timing-function: linear }
+      80% { transform: translate(95%, 50%) rotate(80deg) translateY(-150%); animation-timing-function: cubic-bezier(.64,.66,0,.51) }
+      100% { transform: translate(100%, 50%) rotate(120deg) translateY(0%) }
+    }
+    .spark:nth-child(3) {
+      animation:
+        spark-radius 2.05s 1s both,
+        spark-three-motion 2.03s 1s both;
+    }
+    @keyframes spark-three-motion {
+      0% { transform: translate(50%, 100%) rotate(-40deg) translateX(0%); animation-timing-function: cubic-bezier(0.62, 0.56, 1, 0.54) }
+      30% { transform: translate(40%, 70%) rotate(20deg) translateX(20%); animation-timing-function: cubic-bezier(0, 0.21, 0.88, 0.46) }
+      40% { transform: translate(65%, 20%) rotate(-50deg) translateX(15%); animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62) }
+      60% { transform: translate(60%, -40%) rotate(-50deg) translateX(20%); animation-timing-function: cubic-bezier(0, 0.24, 1, 0.62) }
+      70% { transform: translate(70%, -0%) rotate(-180deg) translateX(20%); animation-timing-function: cubic-bezier(0.15, 0.48, 0.76, 0.26) }
+      100% { transform: translate(70%, -0%) rotate(-360deg) translateX(0%) rotate(180deg) translateX(20%); }
+    }
+    .burst {
+      stroke-width: 3;
+    }
+    .burst :nth-child(2n) { color: #ff783e }
+    .burst :nth-child(3n) { color: #ffab00 }
+    .burst :nth-child(4n) { color: #55e214 }
+    .burst :nth-child(5n) { color: #82d9f5 }
+    .circle {
+      r: 6;
+    }
+    .rect {
+      width: 10px;
+      height: 10px;
+    }
+    .triangle {
+      d: path("M0,-6 L7,6 L-7,6 Z");
+      stroke-linejoin: round;
+    }
+    .plus {
+      d: path("M0,-5 L0,5 M-5,0L 5,0");
+      stroke-linecap: round;
+    }
+    .burst:nth-child(4) {
+      transform: translate(30px, 100%) rotate(150deg);
+    }
+    .burst:nth-child(5) {
+      transform: translate(50%, 0%) rotate(-20deg);
+    }
+    .burst:nth-child(6) {
+      transform: translate(100%, 50%) rotate(75deg);
+    }
+    .burst * {}
+    @keyframes particle-fade {
+      0%, 100% { opacity: 0 }
+      5%, 80% { opacity: 1 }
+    }
+    .burst :nth-child(1) { animation: particle-fade 600ms 2.95s both, particle-one-move 600ms 2.95s both; }
+    .burst :nth-child(2) { animation: particle-fade 600ms 2.95s both, particle-two-move 600ms 2.95s both; }
+    .burst :nth-child(3) { animation: particle-fade 600ms 2.95s both, particle-three-move 600ms 2.95s both; }
+    .burst :nth-child(4) { animation: particle-fade 600ms 2.95s both, particle-four-move 600ms 2.95s both; }
+    .burst :nth-child(5) { animation: particle-fade 600ms 2.95s both, particle-five-move 600ms 2.95s both; }
+    .burst :nth-child(6) { animation: particle-fade 600ms 2.95s both, particle-six-move 600ms 2.95s both; }
+    @keyframes particle-one-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(-20deg) translateX(8%) scale(0.5, 0.5) } }
+    @keyframes particle-two-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(0deg) translateX(8%) scale(0.5, 0.5) } }
+    @keyframes particle-three-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(20deg) translateX(8%) scale(0.5, 0.5) } }
+    @keyframes particle-four-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(-35deg) translateX(12%) } }
+    @keyframes particle-five-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(0deg) translateX(12%) } }
+    @keyframes particle-six-move { 0% { transform: rotate(0deg) translate(-5%) scale(0.0001, 0.0001) } 100% { transform: rotate(35deg) translateX(12%) } }
+    .bar {
+      width: 100%;
+      height: 100%;
+      ry: 50%;
+      stroke-width: 10;
+      animation: bar-in 900ms 3s both;
+    }
+    @keyframes bar-in {
+      0% { stroke-dasharray: 0 180 0 226 0 405 0 0 }
+      100% { stroke-dasharray: 0 0 181 0 227 0 405 0 }
+    }
+    .magnifier {
+      animation: magnifier-in 600ms 3.6s both;
+      transform-box: fill-box;
+    }
+    @keyframes magnifier-in {
+      0% { transform: translate(20px, 8px) rotate(-45deg) scale(0.01, 0.01); }
+      50% { transform: translate(-4px, 8px) rotate(-45deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+    .magnifier .glass {
+      cx: 27;
+      cy: 27;
+      r: 8;
+      stroke-width: 3;
+    }
+    .magnifier .handle {
+      x1: 32;
+      y1: 32;
+      x2: 44;
+      y2: 44;
+      stroke-width: 3;
+    }
+    #results {
+      grid-area: results;
+      background: hsl(0, 0%, 95%);
+    } .h1{
+        font-size: 20px;
+    }
+    .slider-container0 {
+        width: 90%;
+        margin: 20px auto;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    
+      .slides0 {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+    
+      .slide0 {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        box-sizing: border-box;
+        animation: slide-in 0.5s forwards;
+      }
+    
+      @keyframes slide-in {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+    
+      .product {
+        flex: 0 0 calc(33.333% - 20px); 
+        text-align: center;
+        border-radius: 32px;
+        margin: 2PX;
+      }
+    
+      .product img {
+        width: 420px; 
+        height: 280px;
+        border-radius: 6px;
+      }
+    
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #555;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border: none;
+        outline: none;
+        z-index: 100;
+      }
+    
+      .prev {
+        left: 0;
+      }
+    
+      .next {
+        right: 0;
+      }
+      .product {
+    position: relative; 
+}
+
+.product {
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.buy-button {
+    position: absolute;
+    bottom: -20px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    font-size: 15px;
+    color: #fff;
+    background-color: hsl(94,44%,55%); 
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    z-index: 100;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buy-button:hover {
+    background-color: hsl(94, 46%, 34%); 
+}
+.texto p{
+  margin-top: 80px;
+  margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 30px;
+    color: hsl(94,44%,55%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container1 {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.area-card {
+  flex-basis: 300px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.area-card img {
+  max-width: 300px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.area-card h3 {
+  margin-top: 20px;
+}
+
+.area-card p {
+  margin-top: 10px;
+}
+.phone img{
+  width: auto;
+  max-height: 100%;
+  margin-left: 100px;
+  margin-top: 100px;
+
+}
+.phone p{
+  cursor: context-menu;
+  font-size: 50px;
+  position: relative;
+  text-align: center;
+  margin-left: 300px;
+}
+.soon{
+  font-size: 50px;
+  position: relative;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  color: hsl(94, 36%, 41%);
+  text-decoration: none;
+  border-radius: 10%;
+  padding: 2px;
+}
+.soon:hover{
+  color: hsl(94, 39%, 53%);
+  text-decoration: underline;
+  cursor: context-menu;
+}
+.phone{
+  display: flex;
+  align-items: center;
+}
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: auto; 
+}
+
+.footer-icons {
+  margin-bottom: 20px;
+}
+
+.footer-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="image/logo.png" alt="Company Logo" class="logo">
+      <div class="nav-links">
+        <a href="loghome.html">Home</a>
+        <a href="logrent.html">Rent</a>
+        <a href="#events">Events</a>
+        <a href="#events">Join As A Owner</a>
+        <a href="footer/us.html">About Us</a>
+        <a href="footer/contact.html">Contact Us</a>
+      </div>
+    </header>
+    <div class="image-player">
+      
+    </div>
+    <div class="overlay"></div>
+      <div class="search-container">
+          <p class="h1">Booking Sport Venues Has Never Been Easier</p>
+          <p>Find Fields Near You In Nuwaidrat</p>
+          <div id="search">
+              <svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="bar"/>
+                  
+                  <g class="magnifier">
+                      <circle class="glass"/>
+                      <line class="handle" x1="32" y1="32" x2="44" y2="44"></line>
+                  </g>
+          
+                  <g class="sparks">
+                      <circle class="spark"/>
+                      <circle class="spark"/>
+                      <circle class="spark"/>
+                  </g>
+          
+                  <g class="burst pattern-one">
+                      <circle class="particle circle"/>
+                      <path class="particle triangle"/>
+                      <circle class="particle circle"/>
+                      <path class="particle plus"/>
+                      <rect class="particle rect"/>
+                      <path class="particle triangle"/>
+                  </g>
+                  <g class="burst pattern-two">
+                      <path class="particle plus"/>
+                      <circle class="particle circle"/>
+                      <path class="particle triangle"/>
+                      <rect class="particle rect"/>
+                      <circle class="particle circle"/>
+                      <path class="particle plus"/>
+                  </g>
+                  <g class="burst pattern-three">
+                      <circle class="particle circle"/>
+                      <rect class="particle rect"/>
+                      <path class="particle plus"/>
+                      <path class="particle triangle"/>
+                      <rect class="particle rect"/>
+                      <path class="particle plus"/>
+                  </g>
+              </svg>
+              <input type=search name=q aria-label="Search for inspiration"/>
+          </div>
+      </div>
+      <div class="texto">
+        <p>&#10022; RECOMMENDED STADIUMS &#10022;</p>          
+        </div>
+      <div class="slider-container0">
+    <div class="slides0">
+      <div class="slide0">
+        <div class="product">
+          <img src="https://en.reformsports.com/oxegrebi/2023/07/Differences-Between-Stadium-and-Arena.jpg" alt="Product 1">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://www.leparisien.fr/resizer/vIVXHKIAzr75lBMJ_dazgGdMD0U=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/OYXN6WHSBXCQNHYNADA4A2CGNM.jpg" alt="Product 2">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://i.guim.co.uk/img/media/888a4d1a86c821338ae04c8af431b2d3dcb80fe6/0_346_5184_3110/master/5184.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=1cb150868404072de68430ae46a60873" alt="Product 3">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+      </div>
+      <div class="slide0">
+        <div class="product">
+          <img src="https://store.fcbarcelona.com/cdn/shop/collections/VO230411A49865.webp?v=1697526409" alt="Product 4">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://cdn.soccerwiki.org/images/stadium/135.jpg" alt="Product 5">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://www.ami-sportif.com/wp-content/uploads/2020/09/DanHlskWsAADKM0.jpg" alt="Product 6">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+      </div>
+      <div class="slide0">
+        <div class="product">
+          <img src="https://assets.goal.com/images/v3/bltf7389cbd5b1643ec/Disen%CC%83o_sin_ti%CC%81tulo-9.jpg?auto=webp&format=pjpg&width=3840&quality=60" alt="Product 7">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://populous.com/wp-content/uploads/2018/01/Populous_Tottenham-Hotspur-Stadium_Credit-Edward-Hill_3-1504x846.jpg" alt="Product 8">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+        <div class="product">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Etihad_Stadium.jpg" alt="Product 9">
+          <p>Stadium</p>
+          <button class="buy-button" onclick="buyProduct()">Rent</button>
+        </div>
+      </div>
+    </div>
+    
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+  </div>
+  <div class="texto">
+    <p>&#10022; NEARBY AREAS &#10022;</p>
+  </div>
+  <section class="nearby-areas">
+    <div class="container1">
+      <div class="area-card">
+        <img src="https://s31955.pcdn.co/wp-content/uploads/2019/11/a-stadium.jpg" alt="Area 1">
+        <h3>Area 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="area-card">
+        <img src="https://st2.depositphotos.com/1704023/8308/i/450/depositphotos_83082692-stock-photo-modern-football-stadium-with-fans.jpg" alt="Area 2">
+        <h3>Area 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="area-card">
+          <img src="https://media.istockphoto.com/id/508552962/photo/american-football-stadium.jpg?s=612x612&w=0&k=20&c=krKG8iktC9ly9Ym8aUETI6yrZCoq63mZ5EB64hKPiOI=" alt="Area 2">
+          <h3>Area 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="area-card">
+          <img src="https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg" alt="Area 2">
+          <h3>Area 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="area-card">
+          <img src="https://i.pinimg.com/736x/b8/00/15/b8001525bfd945051b42e47b502d6ca9.jpg" alt="Area 2">
+          <h3>Area 5</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="area-card">
+          <img src="https://png.pngtree.com/background/20231030/original/pngtree-illuminated-3d-render-of-a-football-stadium-at-night-with-blurred-picture-image_5799839.jpg" alt="Area 2">
+          <h3>Area 6</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="area-card">
+          <img src="https://w0.peakpx.com/wallpaper/299/703/HD-wallpaper-football-field-abstract-art-football-stadium-soccer-stadium-football-stands.jpg" alt="Area 2">
+          <h3>Area 7</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="area-card">
+          <img src="https://e0.pxfuel.com/wallpapers/327/309/desktop-wallpaper-football-stadium-stadium-sport.jpg" alt="Area 2">
+          <h3>Area 8</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        
+    </div>
+  </section>
+  <div class="phone">
+    <img src="image/phone.png" alt=""><p>Coming <div class="soon">Soon</div></p>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-links">
+        <a href="footer/privacy.html">Privacy Policy</a>
+        <a href="footer/temservice.html">Terms of Service</a>
+        <a href="footer/contact.html">Contact Us</a>
+      </div>
+      <p>&copy; 2024 Malaeb. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    let slideIndex = 0;
+  
+    function showSlides() {
+      const slides = document.querySelectorAll('.slides0 .slide0');
+      if (slideIndex >= slides.length) {
+        slideIndex = 0;
+      } else if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+      }
+      slides.forEach(slide => {
+        slide.style.display = 'none';
+      });
+      slides[slideIndex].style.display = 'flex';
+    }
+  
+    function nextSlide() {
+      slideIndex++;
+      showSlides();
+    }
+  
+    function prevSlide() {
+      slideIndex--;
+      showSlides();
+    }
+  
+    showSlides();
+  </script>
+  
+  </body>
+  </html>

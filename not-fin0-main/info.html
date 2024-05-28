@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lmatch Liik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+
+
+.hero h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hero label {
+    margin-bottom: 10px;
+}
+
+.hero input[type="email"],
+.hero input[type="name"],
+.hero input[type="tel"],
+.hero input[type="time"],
+.hero input[type="date"] {
+    width: calc(100% - 40px); /* Subtract padding from width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hero input[type="email"]:focus,
+.hero input[type="name"]:focus,
+.hero input[type="tel"]:focus,
+.hero input[type="time"]:focus,
+.hero input[type="date"]:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.hero input[type="email"]::placeholder,
+.hero input[type="name"]::placeholder,
+.hero input[type="tel"]::placeholder,
+.hero input[type="time"]::placeholder,
+.hero input[type="date"]::placeholder {
+    color: #999; /* Placeholder text color */
+}
+
+.hero small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+/* Adjust padding for button with icon */
+.hero a.btn {
+    display: inline-flex;
+    align-items: center; /* Align icon and text vertically */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Add margin between buttons */
+}
+.hero {
+    display: flex;
+    justify-content: space-between; /* To push items to opposite ends */
+    align-items: center; /* To vertically center items */
+    padding: 50px; /* Adjust padding as needed */
+}
+
+.hero-content {
+    flex: 0.5; /* This allows the content to take up remaining space */
+    text-align: left; /* Align text to the left */
+}
+.hero-images-container {
+    flex: 1; /* This allows the container to take up remaining space */
+    text-align: right; /* Align container content to the right */
+    margin-left: 500px; /* Adjust margin as needed to create space between content and images */
+}
+
+.hero-images-container img {
+    width: 100%; /* Ensure images fill the container width */
+    max-width: 500px; /* Adjust maximum width of images as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove default inline-block spacing */
+    margin-bottom: 10px; /* Add margin between images */
+}
+/* Define CSS for the animation */
+@keyframes movePaperPlane {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-40px) rotate(-35deg); opacity: 0; } /* Move, rotate, and change opacity */
+}
+.btn.clicked i {
+  animation: movePaperPlane 1s ease forwards; /* Apply animation to the icon */
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            
+            <ul class="nav-links">
+                <a href="#" class="logo"><img src="img/Untitled-1.png"></a>
+                    <div class="dropdown">
+                        <li><a href="home.html">Home</a></li>
+                    </div>
+                    <div class="dropdown">
+                        <li><a href="test2.html">Renting Playgrounds</a></li>
+                    </div>
+                    <div class="dropdown">
+                        <li><a href="#">Discount</a></li>
+                        <div class="dropdown-content">
+                            <a href="#link1">Add</a>
+                            <a href="#link2">Get</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <li><a href="#">Other Service</a></li>
+                        <div class="dropdown-content">
+                            <a href="#link1">Support</a>
+                            <a href="#link2">Get T-shirt</a>
+                            <a href="#link3">Settings</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <li><a href="#">My list</a></li>
+                    </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <form
+            action="https://formspree.io/f/xjvnlpbb"method="POST">
+        <h1>Your information</h1>
+        <label for="name">Name:</label>
+        <input type="name" name="Text" id="Text" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+        <label for="tel">Number</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="1234567890" required>
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" required><br>
+        <label for="time">Time</label>
+        <input type="time" name="time" id="time" required><br>
+        <button>Get Started &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-paper-plane"></i></button>
+        </form>
+       
+    </div>
+    <div class="hero-images-container">
+        <img src="https://media.gettyimages.com/id/1300790431/fr/vid%C3%A9o/vue-a%C3%A9rienne-dun-terrain-de-football-stade-a%C3%A9rien-terrain-de-football-vide-aucun-terrain-de.jpg?s=640x640&k=20&c=lCGOMvezOUKwf5ZLzy753GBXg_hgvlewuDsIGez23LI=" alt="Image 1">
+        <img src="https://img7.yna.co.kr/etc/inner/KR/2018/11/07/AKR20181107113800060_01_i_P2.jpg" alt="Image 2">
+        <!-- Add more images if needed -->
+    </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-info">
+            <p>&copy; 2024 lmatch liik. All Rights Reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function(){
+            // Load initial content
+            $('#content').load('home.html');
+
+            // Function to load different pages
+            $('.nav-link').click(function(e){
+                e.preventDefault();
+                var page = $(this).attr('href');
+                $('#content').load(page);
+            });
+        });
+        
+    </script>
+    
+</body>
+
+</html>
